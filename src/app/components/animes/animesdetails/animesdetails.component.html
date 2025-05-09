@@ -1,0 +1,62 @@
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 centralizar topo">
+            <div class="card">
+                <div class="card-body">
+                    <h4>Cadastrar Anime:</h4>
+
+                    <!-- Nome -->
+                    <mdb-form-control>
+                        <input mdbInput type="text" class="form-control" [(ngModel)]="anime.name" name="name" />
+                        <label mdbLabel class="form-label">Nome</label>
+                    </mdb-form-control>
+
+                    <!-- Sinopse -->
+                    <br>
+                    <mdb-form-control>
+                        <textarea mdbInput class="form-control" [(ngModel)]="anime.synopsis" name="synopsis"></textarea>
+                        <label mdbLabel class="form-label">Sinopse</label>
+                    </mdb-form-control>
+
+                    <!-- Ano -->
+                    <br>
+                    <mdb-form-control>
+                        <input mdbInput type="number" class="form-control" [(ngModel)]="anime.year" name="year" />
+                        <label mdbLabel class="form-label">Ano</label>
+                    </mdb-form-control>
+
+                    <!-- Estúdio (select) -->
+                    <br>
+                    <mdb-form-control>
+                        <select class="form-control" [(ngModel)]="anime.studio" name="studio">
+                            <option *ngFor="let s of studios" [ngValue]="s">{{ s.name }}</option>
+                        </select>
+                        <label mdbLabel class="form-label">Estúdio</label>
+                    </mdb-form-control>
+
+                    <!-- Categorias (checkbox) -->
+                    <br>
+                    <label class="form-label">Categorias:</label>
+                    <div class="d-flex flex-wrap gap-2" style="justify-content: start; align-items: flex-start">
+                        <div *ngFor="let c of categories" style="width: calc(33% - 0.5rem);">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" [value]="c"
+                                    [checked]="anime.categories.includes(c)" (change)="toggleCategory(c)"
+                                    id="{{ 'cat_' + c.id }}" />
+                                <label class="form-check-label" [for]="'cat_' + c.id">
+                                    {{ c.name }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+                    <button type="button" class="btn btn-primary" mdbRipple (click)="save()">
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

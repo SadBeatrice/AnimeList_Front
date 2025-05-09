@@ -1,0 +1,22 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 centralizar topo">
+      <div class="card">
+        <div class="card-body">
+          <h4>Cadastrar Categoria:</h4>
+
+          <mdb-form-control>
+            <input mdbInput type="text" class="form-control" [(ngModel)]="category.name" name="name" />
+            <label mdbLabel class="form-label">Nome</label>
+          </mdb-form-control>
+
+          <br>
+          <button type="button" class="btn btn-primary" mdbRipple (click)="save()">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
