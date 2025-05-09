@@ -2,6 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Studio } from '../models/studio';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { Studio } from '../models/studio';
 
 export class StudioService {
   private http = inject(HttpClient);
-  private API = 'http://localhost:8080/api/studio';
+  private API = environment.SERVIDOR+'/api/studio';
 
   findAll(): Observable<Studio[]> {
     return this.http.get<Studio[]>(`${this.API}/findAll`);

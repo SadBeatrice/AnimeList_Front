@@ -3,8 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Anime } from '../models/anime';
-import { Studio } from '../models/studio';
-import { Category } from '../models/category';
+import { environment } from '../../environments/environment';
 
 
 @Injectable({
@@ -14,9 +13,7 @@ export class AnimeService {
 
   http = inject(HttpClient);
 
-  API = 'http://localhost:8080/api/anime';
-  STUDIO_API = 'http://localhost:8080/api/studio';
-  CATEGORY_API = 'http://localhost:8080/api/category';
+  API = environment.SERVIDOR+'/api/anime';
 
   constructor() { }
 
